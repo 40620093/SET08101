@@ -123,15 +123,15 @@ Snake
             if (game === 'mini-dnd') {
                 miniDndCount++;
                 localStorage.setItem('mini-dnd-counter', miniDndCount);
-                document.getElementById('mini-dnd-counter').textContent = `Played: ${miniDndCount}`;
+                document.getElementById('mini-dnd-counter').textContent = `Times Played: ${miniDndCount}`;
             } else if (game === 'higher-or-lower') {
                 higherOrLowerCount++;
                 localStorage.setItem('higher-or-lower-counter', higherOrLowerCount);
-                document.getElementById('higher-or-lower-counter').textContent = `Played: ${higherOrLowerCount}`;
+                document.getElementById('higher-or-lower-counter').textContent = `Times Played: ${higherOrLowerCount}`;
             } else if (game === 'snake') {
                 snakeCount++;
                 localStorage.setItem('snake-counter', snakeCount);
-                document.getElementById('snake-counter').textContent = `Played: ${snakeCount}`;
+                document.getElementById('snake-counter').textContent = `Times Played: ${snakeCount}`;
             }
         }
     
