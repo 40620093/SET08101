@@ -48,7 +48,6 @@ text-decoration: none;
 color: #333;
 font-size: 1.2em;
 transition: transform 0.2s;
-margin-bottom: 10px;
 }
 
 .game-box:hover {
@@ -70,9 +69,8 @@ border-radius: 8px;
 }
 
 .counter {
-        font-size: 0.75em;
+        font-size: 1.5em;
         margin-top: 10px;
-        color: #fff;
 }
 </style>
 </head>
@@ -89,29 +87,23 @@ Navigation Bar
 
 
 <div class="game-container">
-<a href="https://github.com/user/mini-dnd" class="game-box" target="_blank" id="mini-dnd-link">
+<a href="https://github.com/user/mini-dnd" class="game-box" target="_blank">
 <img src="mini_dnd.png" alt="Mini DnD">
 </a>
+</a>
+<div class="counter" id="mini-dnd-counter">Played: 0</div>
 
-<body>
-<div class="counter" id="mini-dnd-counter">Times Played: 0</div>
-
-
-<a href="https://github.com/user/higher-or-lower" class="game-box" target="_blank" id="higher-or-lower-link">
+<a href="https://github.com/user/higher-or-lower" class="game-box" target="_blank">
 Higher or Lower
 </a>
+<div class="counter" id="higher-or-lower-counter">Played: 0</div>
 
-</div>
-<div class="counter" id="higher-or-lower-counter">Times Played: 0</div>
-
-
-<a href="https://github.com/user/snake" class="game-box" target="_blank" id="snake-link">
+<a href="https://github.com/user/snake" class="game-box" target="_blank">
 Snake
 </a>
+<div class="counter" id="snake-counter">Played: 0</div>
 
 </div>
-<div class="counter" id="snake-counter">Times Played: 0</div>
-
 
 
 <script>
@@ -122,24 +114,24 @@ Snake
         let snakeCount = localStorage.getItem('snake-counter') ? parseInt(localStorage.getItem('snake-counter')) : 0;
     
         // Update the counters on page load
-        document.getElementById('mini-dnd-counter').textContent = `Times Played: ${miniDndCount}`;
-        document.getElementById('higher-or-lower-counter').textContent = `Times Played: ${higherOrLowerCount}`;
-        document.getElementById('snake-counter').textContent = `Times Played: ${snakeCount}`;
+        document.getElementById('mini-dnd-counter').textContent = `Played: ${miniDndCount}`;
+        document.getElementById('higher-or-lower-counter').textContent = `Played: ${higherOrLowerCount}`;
+        document.getElementById('snake-counter').textContent = `Played: ${snakeCount}`;
     
         // Function to increment the counter and save it to localStorage
         function incrementCounter(game) {
             if (game === 'mini-dnd') {
                 miniDndCount++;
                 localStorage.setItem('mini-dnd-counter', miniDndCount);
-                document.getElementById('mini-dnd-counter').textContent = `Times Played: ${miniDndCount}`;
+                document.getElementById('mini-dnd-counter').textContent = `Played: ${miniDndCount}`;
             } else if (game === 'higher-or-lower') {
                 higherOrLowerCount++;
                 localStorage.setItem('higher-or-lower-counter', higherOrLowerCount);
-                document.getElementById('higher-or-lower-counter').textContent = `Times Played: ${higherOrLowerCount}`;
+                document.getElementById('higher-or-lower-counter').textContent = `Played: ${higherOrLowerCount}`;
             } else if (game === 'snake') {
                 snakeCount++;
                 localStorage.setItem('snake-counter', snakeCount);
-                document.getElementById('snake-counter').textContent = `Times Played: ${snakeCount}`;
+                document.getElementById('snake-counter').textContent = `Played: ${snakeCount}`;
             }
         }
     
