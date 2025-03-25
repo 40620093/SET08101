@@ -67,9 +67,16 @@ padding: 10px;
 display: inline-block;
 border-radius: 8px;
 }
+
+.counter {
+        font-size: 1.5em;
+        margin-top: 10px;
+}
 </style>
 </head>
 <body>
+
+    
 
 <h1>Game Center</h1>
 
@@ -83,13 +90,64 @@ Navigation Bar
 <a href="https://github.com/user/mini-dnd" class="game-box" target="_blank">
 <img src="mini_dnd.png" alt="Mini DnD">
 </a>
+</a>
+<div class="counter" id="mini-dnd-counter">Played: 0</div>
+
 <a href="https://github.com/user/higher-or-lower" class="game-box" target="_blank">
 Higher or Lower
 </a>
+<div class="counter" id="higher-or-lower-counter">Played: 0</div>
+
 <a href="https://github.com/user/snake" class="game-box" target="_blank">
 Snake
 </a>
+<div class="counter" id="snake-counter">Played: 0</div>
+
 </div>
 
+<script
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Get counters from localStorage, if they exist
+        let miniDndCount = localStorage.getItem('mini-dnd-counter') ? parseInt(localStorage.getItem('mini-dnd-counter')) : 0;
+        let higherOrLowerCount = localStorage.getItem('higher-or-lower-counter') ? parseInt(localStorage.getItem('higher-or-lower-counter')) : 0;
+        let snakeCount = localStorage.getItem('snake-counter') ? parseInt(localStorage.getItem('snake-counter')) : 0;
+    
+        // Update the counters on page load
+        document.getElementById('mini-dnd-counter').textContent = `Played: ${miniDndCount}`;
+        document.getElementById('higher-or-lower-counter').textContent = `Played: ${higherOrLowerCount}`;
+        document.getElementById('snake-counter').textContent = `Played: ${snakeCount}`;
+    
+        // Function to increment the counter and save it to localStorage
+        function incrementCounter(game) {
+            if (game === 'mini-dnd') {
+                miniDndCount++;
+                localStorage.setItem('mini-dnd-counter', miniDndCount);
+                document.getElementById('mini-dnd-counter').textContent = `Played: ${miniDndCount}`;
+            } else if (game === 'higher-or-lower') {
+                higherOrLowerCount++;
+                localStorage.setItem('higher-or-lower-counter', higherOrLowerCount);
+                document.getElementById('higher-or-lower-counter').textContent = `Played: ${higherOrLowerCount}`;
+            } else if (game === 'snake') {
+                snakeCount++;
+                localStorage.setItem('snake-counter', snakeCount);
+                document.getElementById('snake-counter').textContent = `Played: ${snakeCount}`;
+            }
+        }
+    
+        // Event listeners for when a game is clicked
+        document.getElementById('mini-dnd-link').addEventListener('click', function() {
+            incrementCounter('mini-dnd');
+        });
+    
+        document.getElementById('higher-or-lower-link').addEventListener('click', function() {
+            incrementCounter('higher-or-lower');
+        });
+    
+        document.getElementById('snake-link').addEventListener('click', function() {
+            incrementCounter('snake');
+        });
+    });
+    </script>
 </body>
 </html>
