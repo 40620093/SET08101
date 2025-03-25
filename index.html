@@ -114,9 +114,9 @@ Snake
         let snakeCount = localStorage.getItem('snake-counter') ? parseInt(localStorage.getItem('snake-counter')) : 0;
     
         // Update the counters on page load
-        document.getElementById('mini-dnd-counter').textContent = `Played: ${miniDndCount}`;
-        document.getElementById('higher-or-lower-counter').textContent = `Played: ${higherOrLowerCount}`;
-        document.getElementById('snake-counter').textContent = `Played: ${snakeCount}`;
+        document.getElementById('mini-dnd-counter').textContent = `Times Played: ${miniDndCount}`;
+        document.getElementById('higher-or-lower-counter').textContent = `Times Played: ${higherOrLowerCount}`;
+        document.getElementById('snake-counter').textContent = `Times Played: ${snakeCount}`;
     
         // Function to increment the counter and save it to localStorage
         function incrementCounter(game) {
