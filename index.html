@@ -69,8 +69,19 @@ border-radius: 8px;
 }
 
 .counter {
-        font-size: 0.75em;
-        margin-top: 10px;
+font-size: 0.75em;
+margin-top: 10px;
+}
+
+.search-container{
+margin-bottom: 20px;
+}
+
+.search-container input {
+padding: 10px;
+width: 175px;
+font-size: 1em;
+
 }
 </style>
 </head>
@@ -80,8 +91,8 @@ border-radius: 8px;
 
 <h1>Game Center</h1>
 
-<div class="navigation-bar">
-Navigation Bar
+<div class="search-container">
+<input type= "text" id="game search" placeholder="search for a game">
 </div>
 
 
@@ -148,6 +159,24 @@ Snake
             incrementCounter('snake');
         });
     });
+
+        // Search functionality
+        const searchInput = document.getElementById('game-search');
+    const gameBoxes = document.querySelectorAll('.game-box');
+
+    searchInput.addEventListener('input', function() {
+        const searchTerm = searchInput.value.toLowerCase();
+        
+        gameBoxes.forEach(function(box) {
+            const gameTitle = box.textContent.trim().toLowerCase();
+            if (gameTitle.includes(searchTerm)) {
+                box.style.display = 'block'; // Show game box if it matches the search term
+            } else {
+                box.style.display = 'none'; // Hide game box if it doesn't match
+            }
+        });
+    });
+
     </script>
 </body>
 </html>
