@@ -101,7 +101,7 @@ background-color: #555;
     color: white;
     padding: 10px;
     border-radius: 5px;
-    font-size: 0.9em;
+    font-size: 0.75em;
     }
 }
 </style>
@@ -138,7 +138,7 @@ Snake
 
 </div>
 
-<div id="visit-counter">Visits: 0</div>
+<div id="visit-counter">Webpage visits: 0</div>
 
 <script>
     document.addEventListener("DOMContentLoaded", function() {
@@ -147,7 +147,7 @@ Snake
         visitCount++;
         localStorage.setItem('visit-counter', visitCount);
         document.getElementById('visit-counter').textContent = `Visits: ${visitCount}`;
-        
+
         let miniDndCount = localStorage.getItem('mini-dnd-counter') ? parseInt(localStorage.getItem('mini-dnd-counter')) : 0;
         let higherOrLowerCount = localStorage.getItem('higher-or-lower-counter') ? parseInt(localStorage.getItem('higher-or-lower-counter')) : 0;
         let snakeCount = localStorage.getItem('snake-counter') ? parseInt(localStorage.getItem('snake-counter')) : 0;
