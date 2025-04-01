@@ -101,7 +101,7 @@ background-color: #555;
     color: white;
     padding: 10px;
     border-radius: 5px;
-    font-size: 0.75em;
+    font-size: 0.70em;
     }
 }
 </style>
@@ -146,7 +146,7 @@ Snake
         let visitCount = localStorage.getItem('visit-counter') ? parseInt(localStorage.getItem('visit-counter')) : 0;
         visitCount++;
         localStorage.setItem('visit-counter', visitCount);
-        document.getElementById('visit-counter').textContent = `Visits: ${visitCount}`;
+        document.getElementById('visit-counter').textContent = `Webpage visits: ${visitCount}`;
 
         let miniDndCount = localStorage.getItem('mini-dnd-counter') ? parseInt(localStorage.getItem('mini-dnd-counter')) : 0;
         let higherOrLowerCount = localStorage.getItem('higher-or-lower-counter') ? parseInt(localStorage.getItem('higher-or-lower-counter')) : 0;
