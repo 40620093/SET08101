@@ -93,6 +93,16 @@ cursor: pointer;
 .search-container button:hover {
 background-color: #555;
 }
+.visit-counter {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    }
 }
 </style>
 </head>
@@ -128,10 +138,16 @@ Snake
 
 </div>
 
+<div id="visit-counter">Visits: 0</div>
 
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         // Get counters from localStorage, if they exist
+        let visitCount = localStorage.getItem('visit-counter') ? parseInt(localStorage.getItem('visit-counter')) : 0;
+        visitCount++;
+        localStorage.setItem('visit-counter', visitCount);
+        document.getElementById('visit-counter').textContent = `Visits: ${visitCount}`;
+        
         let miniDndCount = localStorage.getItem('mini-dnd-counter') ? parseInt(localStorage.getItem('mini-dnd-counter')) : 0;
         let higherOrLowerCount = localStorage.getItem('higher-or-lower-counter') ? parseInt(localStorage.getItem('higher-or-lower-counter')) : 0;
         let snakeCount = localStorage.getItem('snake-counter') ? parseInt(localStorage.getItem('snake-counter')) : 0;
