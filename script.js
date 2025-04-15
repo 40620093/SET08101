@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-    // Get counters from localStorage, if they exist
+    // Get counters from localStorage
     let visitCount = localStorage.getItem('visit-counter') ? parseInt(localStorage.getItem('visit-counter')) : 0;
     visitCount++;
     localStorage.setItem('visit-counter', visitCount);
@@ -45,31 +45,22 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
  // Search functionality - on button click or pressing 'Enter'
-    const searchInput = document.getElementById('game-search');
-    const searchButton = document.getElementById('search-btn');
-    const gameBoxes = document.querySelectorAll('.game-box');
 
     function searchGames() {
-    const searchTerm = searchInput.value.toLowerCase();
-    
-    gameBoxes.forEach(function(box) {
-        const gameTitle = box.textContent.trim().toLowerCase();
-        if (gameTitle.includes(searchTerm)) {
-            box.style.display = 'block'; // Show game box if it matches the search term
-        } else {
-            box.style.display = 'none'; // Hide game box if it doesn't match
+        //const searchTerm = searchInput.textContent
+
+        const gameBoxes = document.getElementsByClassName("game-box");
+        const searchInput = document.getElementById('game_search');
+
+        for(box in gameBoxes){
+            console.log(searchInput.value)
+            console.log(gameBoxes[box].textContent)
+            if (searchInput.value === gameBoxes[box].textContent){
+                gameBoxes[box].style.visibility = "hidden"
+            }
         }
-    });
+
 }
-
+    const searchButton = document.getElementById("search-btn")
     // Button click event to trigger search
-    searchButton.addEventListener('click', function() {
-    searchGames();
-});
-
-    // Trigger search on 'Enter' key press
-    searchInput.addEventListener('keypress', function(event) {
-    if (event.key === 'Enter') {
-        searchGames();
-    }
-});
+    searchButton.addEventListener('click', searchGames());
